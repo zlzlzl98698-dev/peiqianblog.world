@@ -7,6 +7,7 @@ import SakuraRain from './components/SakuraRain.vue';
 import StickyNote from './components/StickyNote.vue';
 import BrandCard from './components/BrandCard.vue';
 import SpeedMatrix from './components/SpeedMatrix.vue';
+import SakuraGirl from './components/SakuraGirl.vue';
 
 export default {
   extends: DefaultTheme,
@@ -21,5 +22,6 @@ export default {
     app.component('StickyNote', StickyNote);
     app.component('BrandCard', BrandCard);
     app.component('SpeedMatrix', SpeedMatrix);
+    app.component('SakuraGirl', SakuraGirl);
   }
 } satisfies Theme;

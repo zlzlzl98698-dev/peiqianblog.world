@@ -82,11 +82,11 @@ export default defineConfig({
       {
         text: '💻 客户端与配置',
         items: [
-          { text: '📥 全平台客户端下载库', link: '/topics/clients-hub' },
-          { text: '🪟 Windows 客户端精选', link: '/topics/clients-hub#windows' },
-          { text: '🍎 iOS 小火箭 / Stash', link: '/topics/clients-hub#ios' },
-          { text: '🤖 Android 安卓客户端', link: '/topics/clients-hub#android' },
-          { text: '🌐 OpenWrt 软路由透明代理', link: '/topics/clients-hub#openwrt' }
+          { text: '📥 全平台客户端总库', link: '/topics/clients-hub' },
+          { text: '🪟 Clash Verge Rev 电脑版', link: '/clients/clash-verge-rev' },
+          { text: '🍎 Shadowrocket 小火箭教程', link: '/clients/shadowrocket' },
+          { text: '⚡ v2rayN 极客配置教程', link: '/clients/v2rayn' },
+          { text: '🌐 OpenClash 软路由透明代理', link: '/clients/openclash' }
         ]
       },
       {
@@ -109,6 +109,25 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/clients/': [
+        {
+          text: '📥 核心客户端详细教程',
+          collapsed: false,
+          items: [
+            { text: 'Clash Verge Rev 电脑版', link: '/clients/clash-verge-rev' },
+            { text: 'Shadowrocket 小火箭教程', link: '/clients/shadowrocket' },
+            { text: 'v2rayN 极客配置教程', link: '/clients/v2rayn' },
+            { text: 'OpenClash 软路由透明代理', link: '/clients/openclash' }
+          ]
+        },
+        {
+          text: '📚 综合导航',
+          items: [
+            { text: '返回全平台客户端总库', link: '/topics/clients-hub' },
+            { text: '查看 2026 梯子排行榜', link: '/topics/ranking-guide' }
+          ]
+        }
+      ],
       '/topics/': [
         {
           text: '📌 六大核心专题支柱',
