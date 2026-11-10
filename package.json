@@ -1,0 +1,17 @@
+{
+  "name": "peiqianblog-world",
+  "version": "1.0.0",
+  "description": "赔钱博客 peiqianblog.world - 高端 SEO/GEO 机场评测与科学上网知识图谱转化站",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev src",
+    "docs:build": "vitepress build src",
+    "docs:preview": "vitepress preview src"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "vitepress": "^1.5.0"
+  }
+}
