@@ -135,12 +135,63 @@ export default defineConfig({
       ],
       '/brands/': [
         {
-          text: '✈️ 重点机场品牌深度实测',
+          text: '🏆 核心主推前十梯队',
+          collapsed: false,
           items: [
-            { text: '光速云（主推第一）', link: '/brands/guangsu' },
-            { text: '飞猫云（实测图）', link: '/brands/feimao' },
-            { text: '暮光加速（实测图）', link: '/brands/muguang' },
-            { text: '微风网络（实测图）', link: '/brands/weifeng' }
+            { text: '🥇 01. 光速云 (主推第一)', link: '/brands/guangsu' },
+            { text: '🥈 02. 暮光加速', link: '/brands/muguang' },
+            { text: '🥉 03. 飞猫云', link: '/brands/feimao' },
+            { text: '04. 微风网络', link: '/brands/weifeng' },
+            { text: '05. 大佬云', link: '/brands/dalaoyun' },
+            { text: '06. 星岛梦', link: '/brands/xingdaomeng' },
+            { text: '07. 二猫云', link: '/brands/ermao' },
+            { text: '08. 无忧链接', link: '/brands/wuyou' },
+            { text: '09. 唯兔云', link: '/brands/weitu' },
+            { text: '10. Firefly', link: '/brands/firefly' }
+          ]
+        },
+        {
+          text: '⚡ 优质专线与高性价比 (11-28)',
+          collapsed: true,
+          items: [
+            { text: '11. 宇宙云', link: '/brands/yuzhou' },
+            { text: '12. U1S1 (2000Mbps)', link: '/brands/u1s1' },
+            { text: '13. 灵猫网络', link: '/brands/lingmao' },
+            { text: '14. 极连云', link: '/brands/jilian' },
+            { text: '15. 光年梯', link: '/brands/guangnian' },
+            { text: '16. 一翻云 (原生住宅IP)', link: '/brands/yifan' },
+            { text: '17. SOGO云 (15国覆盖)', link: '/brands/sogo' },
+            { text: '18. 可信云', link: '/brands/kexin' },
+            { text: '19. 速界 (AI大模型专属)', link: '/brands/sujie' },
+            { text: '20. 闪跃', link: '/brands/shanyue' },
+            { text: '21. 全球云', link: '/brands/quanqiu' },
+            { text: '22. 闪电鼠 (5.6元档)', link: '/brands/shandianshu' },
+            { text: '23. 云界线', link: '/brands/yunjiexian' },
+            { text: '24. 榴莲云', link: '/brands/liulianyun' },
+            { text: '25. 神行加速', link: '/brands/shenxing' },
+            { text: '26. 环球梯', link: '/brands/huanqiuti' },
+            { text: '27. 隐形人', link: '/brands/yinxingren' },
+            { text: '28. 梯子云 (一键小白登录)', link: '/brands/tiziyun' }
+          ]
+        },
+        {
+          text: '🌐 国际化与老牌高阶 (29-42)',
+          collapsed: true,
+          items: [
+            { text: '29. WgetCloud', link: '/brands/wgetcloud' },
+            { text: '30. 白月光', link: '/brands/baiyueguang' },
+            { text: '31. FlyingBird (飞鸟)', link: '/brands/flyingbird' },
+            { text: '32. CyberGuard', link: '/brands/cyberguard' },
+            { text: '33. 龙猫云', link: '/brands/longmaoyun' },
+            { text: '34. FATCAT (肥猫云)', link: '/brands/fatcat' },
+            { text: '35. TNTCloud', link: '/brands/tntcloud' },
+            { text: '36. 青云梯', link: '/brands/qingyunti' },
+            { text: '37. 山水云', link: '/brands/shanshuiyun' },
+            { text: '38. 灵动云', link: '/brands/lingdongyun' },
+            { text: '39. 浪网', link: '/brands/langwang' },
+            { text: '40. EdgeNova', link: '/brands/edgenova' },
+            { text: '41. 萤火虫', link: '/brands/yinghuochong' },
+            { text: '42. sslar', link: '/brands/sslar' }
           ]
         },
         {
