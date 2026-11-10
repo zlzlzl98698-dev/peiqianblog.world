@@ -14,7 +14,7 @@ export default defineConfig({
   },
 
   head: [
-    ['link', { rel: 'icon', href: '/images/avatar/sakura-logo.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/images/avatar/avatar.jpg', type: 'image/jpeg' }],
     ['meta', { name: 'author', content: '赔钱博客 樱花校园极客部' }],
     ['meta', { name: 'keywords', content: '2026机场推荐,稳定梯子推荐,光速云,暮光加速,飞猫云,微风网络,IPLC专线,IEPL物理专线,VLESS,ChatGPT节点,Netflix 4K机场,Clash Verge Rev下载,Shadowrocket教程' }],
     ['meta', { name: 'theme-color', content: '#FF6B9D' }],
@@ -41,7 +41,7 @@ export default defineConfig({
 
   themeConfig: {
     siteTitle: '🌸 赔钱博客',
-    logo: '/images/avatar/sakura-logo.svg',
+    logo: '/images/avatar/avatar.jpg',
 
     search: {
       provider: 'local',

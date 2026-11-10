@@ -6,7 +6,7 @@ hero:
   text: "2026 稳定机场推荐与梯子测速实验室"
   tagline: "以可验证的测速数据为基石，拒绝虚标跑路盘。42家机场品牌客观测评、全平台客户端配置与科学上网蜂巢知识图谱。"
   image:
-    src: /images/avatar/sakura-logo.svg
+    src: /images/avatar/avatar.jpg
     alt: 赔钱博客 Cyber Sakura Lab
   actions:
     - theme: brand
