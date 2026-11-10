@@ -3,4 +3,19 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
+# 专门针对主流海外与国内搜索引擎爬虫显式开放
+User-agent: Googlebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# 神马搜索 (UC浏览器 / 夸克搜索) 专用爬虫
+User-agent: yisouspider
+Allow: /
+
+# 唯一正式主域名 XML Sitemap 索引声明
 Sitemap: https://peiqianblog.world/sitemap.xml

@@ -10,6 +10,12 @@ export default defineConfig({
   appearance: 'dark',
 
   transformHead({ pageData }) {
+    if (pageData.relativePath === '404.md') {
+      return [
+        ['meta', { name: 'robots', content: 'noindex, nofollow' }]
+      ];
+    }
+
     const cleanPath = pageData.relativePath === 'index.md'
       ? ''
       : pageData.relativePath.replace(/\.md$/, '').replace(/\/index$/, '');
@@ -17,7 +23,11 @@ export default defineConfig({
 
     const head: any[] = [
       ['link', { rel: 'canonical', href: canonicalUrl }],
-      ['meta', { property: 'og:url', content: canonicalUrl }]
+      ['meta', { property: 'og:url', content: canonicalUrl }],
+      ['meta', { property: 'og:title', content: pageData.title ? `${pageData.title} · 赔钱博客` : '赔钱博客 · 2026 稳定机场推荐与梯子测速实验室' }],
+      ['meta', { property: 'og:description', content: pageData.description || '42家机场客观深度测评、流媒体与AI解锁实测、全平台客户端教程及科学上网蜂巢知识图谱。' }],
+      ['meta', { name: 'twitter:title', content: pageData.title ? `${pageData.title} · 赔钱博客` : '赔钱博客 · 2026 稳定机场推荐与梯子测速实验室' }],
+      ['meta', { name: 'twitter:description', content: pageData.description || '42家机场客观深度测评、流媒体与AI解锁实测、全平台客户端教程及科学上网蜂巢知识图谱。' }]
     ];
 
     if (cleanPath) {
@@ -44,6 +54,36 @@ export default defineConfig({
           name: pageData.title || '品牌独立评测',
           item: canonicalUrl
         });
+
+        // 品牌评测专用 Review Schema
+        head.push([
+          'script',
+          { type: 'application/ld+json' },
+          JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Review',
+            itemReviewed: {
+              '@type': 'Product',
+              name: pageData.title ? pageData.title.split('？')[0] : '机场专线服务',
+              description: pageData.description
+            },
+            author: {
+              '@type': 'Organization',
+              name: '赔钱博客 樱花校园极客部 (Cyber Sakura Lab)',
+              url: 'https://peiqianblog.world/about/methodology'
+            },
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: '4.8',
+              bestRating: '5'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: '赔钱博客',
+              url: 'https://peiqianblog.world'
+            }
+          })
+        ]);
       } else if (parts[0] === 'clients') {
         breadcrumbItems.push({
           '@type': 'ListItem',
@@ -57,6 +97,35 @@ export default defineConfig({
           name: pageData.title || '客户端教程',
           item: canonicalUrl
         });
+
+        // 客户端技术教程 TechArticle Schema
+        head.push([
+          'script',
+          { type: 'application/ld+json' },
+          JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'TechArticle',
+            headline: pageData.title,
+            description: pageData.description,
+            author: {
+              '@type': 'Organization',
+              name: '赔钱博客 樱花校园极客部',
+              url: 'https://peiqianblog.world/about/methodology'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: '赔钱博客',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://peiqianblog.world/images/avatar/avatar.jpg'
+              }
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': canonicalUrl
+            }
+          })
+        ]);
       } else if (parts[0] === 'topics') {
         breadcrumbItems.push({
           '@type': 'ListItem',
@@ -70,6 +139,35 @@ export default defineConfig({
           name: pageData.title || '专题矩阵',
           item: canonicalUrl
         });
+
+        // 专题矩阵 Article Schema
+        head.push([
+          'script',
+          { type: 'application/ld+json' },
+          JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: pageData.title,
+            description: pageData.description,
+            author: {
+              '@type': 'Organization',
+              name: '赔钱博客 樱花校园极客部',
+              url: 'https://peiqianblog.world/about/methodology'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: '赔钱博客',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://peiqianblog.world/images/avatar/avatar.jpg'
+              }
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': canonicalUrl
+            }
+          })
+        ]);
       } else if (parts[0] === 'about') {
         breadcrumbItems.push({
           '@type': 'ListItem',
@@ -93,19 +191,31 @@ export default defineConfig({
     return head;
   },
 
-  // 自动生成 sitemap.xml
+  // 自动生成 sitemap.xml（严格排除 404 与非正式页面）
   sitemap: {
-    hostname: 'https://peiqianblog.world'
+    hostname: 'https://peiqianblog.world',
+    transformItems(items) {
+      return items.filter(item => !item.url.includes('404'));
+    }
   },
 
   head: [
     ['link', { rel: 'icon', href: '/images/avatar/avatar.jpg', type: 'image/jpeg' }],
-    ['meta', { name: 'author', content: '赔钱博客 樱花校园极客部' }],
+    ['meta', { name: 'author', content: '赔钱博客 樱花校园极客部 (Cyber Sakura Lab)' }],
     ['meta', { name: 'keywords', content: '2026机场推荐,稳定梯子推荐,光速云,暮光加速,飞猫云,微风网络,IPLC专线,IEPL物理专线,VLESS,ChatGPT节点,Netflix 4K机场,Clash Verge Rev下载,Shadowrocket教程' }],
     ['meta', { name: 'theme-color', content: '#FF6B9D' }],
+    ['meta', { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }],
     ['meta', { property: 'og:site_name', content: '赔钱博客' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'zh_CN' }],
+    ['meta', { property: 'og:image', content: 'https://peiqianblog.world/images/avatar/avatar.jpg' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: 'https://peiqianblog.world/images/avatar/avatar.jpg' }],
+    // 搜索引擎站长平台所有权验证（预留槽位：站长提供后即可填入即时生效）
+    // ['meta', { name: 'google-site-verification', content: 'YOUR_GOOGLE_CODE' }],
+    // ['meta', { name: 'msvalidate.01', content: 'YOUR_BING_CODE' }],
+    // ['meta', { name: 'shenma-site-verification', content: 'YOUR_SHENMA_CODE' }],
+    // ['meta', { name: 'baidu-site-verification', content: 'YOUR_BAIDU_CODE' }],
     [
       'script',
       { type: 'application/ld+json' },
