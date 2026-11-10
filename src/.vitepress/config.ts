@@ -7,6 +7,7 @@ export default defineConfig({
   lang: 'zh-CN',
   cleanUrls: true,
   lastUpdated: true,
+  appearance: 'dark',
 
   // 自动生成 sitemap.xml
   sitemap: {
