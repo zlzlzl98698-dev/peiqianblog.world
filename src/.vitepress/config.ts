@@ -9,6 +9,90 @@ export default defineConfig({
   lastUpdated: true,
   appearance: 'dark',
 
+  transformHead({ pageData }) {
+    const cleanPath = pageData.relativePath === 'index.md'
+      ? ''
+      : pageData.relativePath.replace(/\.md$/, '').replace(/\/index$/, '');
+    const canonicalUrl = cleanPath ? `https://peiqianblog.world/${cleanPath}` : 'https://peiqianblog.world/';
+
+    const head: any[] = [
+      ['link', { rel: 'canonical', href: canonicalUrl }],
+      ['meta', { property: 'og:url', content: canonicalUrl }]
+    ];
+
+    if (cleanPath) {
+      const parts = cleanPath.split('/');
+      const breadcrumbItems: any[] = [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: '首页',
+          item: 'https://peiqianblog.world/'
+        }
+      ];
+
+      if (parts[0] === 'brands') {
+        breadcrumbItems.push({
+          '@type': 'ListItem',
+          position: 2,
+          name: '42家机场品牌评测库',
+          item: 'https://peiqianblog.world/topics/airport-brands'
+        });
+        breadcrumbItems.push({
+          '@type': 'ListItem',
+          position: 3,
+          name: pageData.title || '品牌独立评测',
+          item: canonicalUrl
+        });
+      } else if (parts[0] === 'clients') {
+        breadcrumbItems.push({
+          '@type': 'ListItem',
+          position: 2,
+          name: '客户端使用教程总库',
+          item: 'https://peiqianblog.world/topics/clients-hub'
+        });
+        breadcrumbItems.push({
+          '@type': 'ListItem',
+          position: 3,
+          name: pageData.title || '客户端教程',
+          item: canonicalUrl
+        });
+      } else if (parts[0] === 'topics') {
+        breadcrumbItems.push({
+          '@type': 'ListItem',
+          position: 2,
+          name: '六大核心 SEO/GEO 知识矩阵',
+          item: 'https://peiqianblog.world/topics/ranking-guide'
+        });
+        breadcrumbItems.push({
+          '@type': 'ListItem',
+          position: 3,
+          name: pageData.title || '专题矩阵',
+          item: canonicalUrl
+        });
+      } else if (parts[0] === 'about') {
+        breadcrumbItems.push({
+          '@type': 'ListItem',
+          position: 2,
+          name: '实验室与评测标准',
+          item: canonicalUrl
+        });
+      }
+
+      head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: breadcrumbItems
+        })
+      ]);
+    }
+
+    return head;
+  },
+
   // 自动生成 sitemap.xml
   sitemap: {
     hostname: 'https://peiqianblog.world'
@@ -42,7 +126,10 @@ export default defineConfig({
 
   themeConfig: {
     siteTitle: '🌸 赔钱博客',
-    logo: '/images/avatar/avatar.jpg',
+    logo: {
+      src: '/images/avatar/avatar.jpg',
+      alt: '赔钱博客 Cyber Sakura Lab - 2026 梯子测速实验室'
+    },
 
     search: {
       provider: 'local',
@@ -94,7 +181,8 @@ export default defineConfig({
           { text: '❓ 机场百科与全景 FAQ', link: '/topics/airport-faq' },
           { text: '🔬 翻墙协议原理与物理专线', link: '/topics/protocols-network' },
           { text: '🤖 ChatGPT / AI 生产力专线', link: '/topics/ai-productivity' },
-          { text: '🎬 4K 流媒体与 TikTok 出海', link: '/topics/streaming-overseas' }
+          { text: '🎬 4K 流媒体与 TikTok 出海', link: '/topics/streaming-overseas' },
+          { text: '🔬 实验室测试标准与规范', link: '/about/methodology' }
         ]
       },
       {
@@ -240,7 +328,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: '🌸 赔钱博客 peiqianblog.world · 樱花校园极客部（Cyber Sakura Lab）权威出品',
+      message: '🌸 赔钱博客 peiqianblog.world · <a href="/about/methodology">实验室评测规范与方法论</a> · 樱花校园极客部出品',
       copyright: 'Copyright © 2020-2026 赔钱博客. All Rights Reserved. 包含推广链接声明：通过本站链接注册可能为维护团队带来少许服务器佣金，绝不影响用户实际支付价格与优惠折扣。'
     },
 
