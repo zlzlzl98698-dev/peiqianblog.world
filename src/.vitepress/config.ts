@@ -71,16 +71,33 @@ export default defineConfig({
     nav: [
       { text: '🌸 首页', link: '/' },
       {
-        text: '✈️ 机场选型与评测',
+        text: '🏆 机场推荐与评测',
         items: [
-          { text: '🏆 2026 梯子推荐与红黑榜', link: '/topics/ranking-guide' },
-          { text: '🧪 42 家机场实测品牌库', link: '/topics/airport-brands' },
-          { text: '💰 极限平价 5.6 元档横评', link: '/topics/ranking-guide#cheap-airports' },
-          { text: '🛡️ 晚高峰零丢包物理专线', link: '/topics/ranking-guide#iplc-iepl-stable' }
+          { text: '📊 42 家机场综合推荐大矩阵', link: '/topics/ranking-guide' },
+          { text: '🧪 42 家深度机场评测大矩阵', link: '/topics/airport-brands' },
+          { text: '💰 极限平价 5.6 元档横评', link: '/topics/ranking-guide#二极限平价阵营56-元档横向大比拼' },
+          { text: '🛡️ 晚高峰零丢包物理专线', link: '/topics/ranking-guide#一2026-年度梯子推荐总红榜前-10-梯队' }
         ]
       },
       {
-        text: '💻 客户端与配置',
+        text: '🎁 免费与避坑预警',
+        items: [
+          { text: '⚡ 免费节点与订阅实测', link: '/topics/free-nodes' },
+          { text: '🎁 免费试用与一元尝鲜', link: '/topics/free-trials' },
+          { text: '🚨 跑路预警与黑名单避坑', link: '/topics/scam-warnings' }
+        ]
+      },
+      {
+        text: '📚 百科 FAQ 与科普',
+        items: [
+          { text: '❓ 机场百科与全景 FAQ', link: '/topics/airport-faq' },
+          { text: '🔬 翻墙协议原理与物理专线', link: '/topics/protocols-network' },
+          { text: '🤖 ChatGPT / AI 生产力专线', link: '/topics/ai-productivity' },
+          { text: '🎬 4K 流媒体与 TikTok 出海', link: '/topics/streaming-overseas' }
+        ]
+      },
+      {
+        text: '💻 客户端教程',
         items: [
           { text: '📥 全平台客户端总库', link: '/topics/clients-hub' },
           { text: '🪟 Clash Verge Rev 电脑版', link: '/clients/clash-verge-rev' },
@@ -89,23 +106,7 @@ export default defineConfig({
           { text: '🌐 OpenClash 软路由透明代理', link: '/clients/openclash' }
         ]
       },
-      {
-        text: '🔬 协议原理与专线',
-        items: [
-          { text: '📚 协议原理与专线科普支柱', link: '/topics/protocols-network' },
-          { text: '⚡ IPLC 与 IEPL 专线全景拆解', link: '/topics/protocols-network#iplc-vs-iepl' },
-          { text: '🛡️ VLESS 与 Reality 协议机制', link: '/topics/protocols-network#vless-reality' },
-          { text: '🚀 Hysteria 2 恶劣弱网对抗', link: '/topics/protocols-network#hysteria2' }
-        ]
-      },
-      {
-        text: '🌍 场景与出海运营',
-        items: [
-          { text: '🤖 ChatGPT / Claude AI 专线', link: '/topics/ai-productivity' },
-          { text: '🎬 4K 流媒体与 TikTok 跨境', link: '/topics/streaming-overseas' }
-        ]
-      },
-      { text: '✨ 光速云评测（主推）', link: '/brands/guangsu' }
+      { text: '🥇 光速云评测（第一主推）', link: '/brands/guangsu' }
     ],
 
     sidebar: {
@@ -130,15 +131,25 @@ export default defineConfig({
       ],
       '/topics/': [
         {
-          text: '📌 六大核心专题支柱',
+          text: '🏆 六大核心 SEO/GEO 知识矩阵',
           collapsed: false,
           items: [
-            { text: '🏆 专题 A：2026 梯子推荐与红黑榜', link: '/topics/ranking-guide' },
-            { text: '🧪 专题 B：42 家机场品牌库实测', link: '/topics/airport-brands' },
-            { text: '📥 专题 C：代理客户端全平台下载', link: '/topics/clients-hub' },
-            { text: '🔬 专题 D：翻墙协议与物理专线科普', link: '/topics/protocols-network' },
-            { text: '🤖 专题 E：ChatGPT / AI 生产力专线', link: '/topics/ai-productivity' },
-            { text: '🎬 专题 F：4K 流媒体与跨境出海生态', link: '/topics/streaming-overseas' }
+            { text: '📊 专题 1：42 家机场综合推荐矩阵', link: '/topics/ranking-guide' },
+            { text: '🧪 专题 2：42 家深度机场评测矩阵', link: '/topics/airport-brands' },
+            { text: '⚡ 专题 3：免费节点与订阅实测矩阵', link: '/topics/free-nodes' },
+            { text: '❓ 专题 4：机场百科与全景 FAQ 矩阵', link: '/topics/airport-faq' },
+            { text: '🚨 专题 5：跑路预警与黑名单避坑矩阵', link: '/topics/scam-warnings' },
+            { text: '🎁 专题 6：免费试用与一元尝鲜矩阵', link: '/topics/free-trials' }
+          ]
+        },
+        {
+          text: '🔬 进阶协议与应用场景',
+          collapsed: true,
+          items: [
+            { text: '📥 代理客户端全平台下载库', link: '/topics/clients-hub' },
+            { text: '🔬 翻墙协议原理与物理专线科普', link: '/topics/protocols-network' },
+            { text: '🤖 ChatGPT / AI 生产力专线指南', link: '/topics/ai-productivity' },
+            { text: '🎬 4K 流媒体与跨境出海运营生态', link: '/topics/streaming-overseas' }
           ]
         },
         {
